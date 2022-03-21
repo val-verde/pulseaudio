@@ -371,15 +371,7 @@ if cc.has_header_symbol('sys/syscall.h', 'SYS_memfd_create') \
   cdata.set('HAVE_MEMFD', 1)
 endif
 
-if cc.has_function('dgettext')
-  if host_machine.system() != 'windows'
-    libintl_dep = []
-  else
-    libintl_dep = cc.find_library('intl')
-  endif
-else
-  libintl_dep = cc.find_library('intl')
-endif
+libintl_dep = cc.find_library('intl', required: false)
 
 # Symbols
 
