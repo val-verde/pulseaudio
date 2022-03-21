@@ -46,7 +46,11 @@
 /* __sync based implementation */
 
 typedef struct pa_atomic {
+#ifdef _WIN32
+    volatile long long value;
+#else
     volatile int value;
+#endif
 } pa_atomic_t;
 
 #define PA_ATOMIC_INIT(v) { .value = (v) }
