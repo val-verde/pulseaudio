@@ -183,6 +183,9 @@ simd_variants = [
 libpulsecore_simd_lib = []
 
 foreach simd_kwargs : simd_variants
+  if host_machine.cpu_family() in ['aarch64', 'i686', 'x86_64']
+    continue
+  endif
 
   if host_machine.cpu_family() == 'arm' and 'neon' in simd_kwargs
     if not cc.compiles('''
