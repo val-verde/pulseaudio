@@ -24,7 +24,7 @@
 
 #include <stdint.h>
 
-#ifdef HAVE_CPUID_H
+#if (defined(__i386__) || defined(__amd64__)) && defined(HAVE_CPUID_H)
 #include <cpuid.h>
 #endif
 
