@@ -202,7 +202,7 @@ elif host_machine.system() == 'windows'
   ws2_32_dep = meson.get_compiler('c').find_library('ws2_32')
   winsock_dep = meson.get_compiler('c').find_library('wsock32')
   ole32_dep = meson.get_compiler('c').find_library('ole32')
-  ssp_dep = meson.get_compiler('c').find_library('ssp')
+  ssp_dep = meson.get_compiler('c').find_library('ssp', required: false)
   pcreposix_dep = meson.get_compiler('c').find_library('pcreposix')
   platform_socket_dep = [ws2_32_dep, winsock_dep]
   platform_dep = [ole32_dep, ssp_dep, pcreposix_dep]
