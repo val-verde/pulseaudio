@@ -266,7 +266,7 @@ check_headers = [
 ]
 
 foreach h : check_headers
-  if cc.has_header(h)
+  if cc.has_header(h) and not (h == 'execinfo.h' and host_machine.system() == 'android')
     define = 'HAVE_' + h.underscorify().to_upper()
     cdata.set(define, 1)
   endif
