@@ -94,7 +94,11 @@ struct shm_marker {
 };
 
 // Ensure struct is appropriately packed
+#ifdef _WIN32
+static_assert(sizeof(struct shm_marker) == 8 * 6, "`struct shm_marker` is not tightly packed");
+#else
 static_assert(sizeof(struct shm_marker) == 8 * 5, "`struct shm_marker` is not tightly packed");
+#endif
 
 static inline size_t shm_marker_size(pa_mem_type_t type) {
     if (type == PA_MEM_TYPE_SHARED_POSIX)
