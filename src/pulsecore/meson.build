@@ -183,7 +183,7 @@ simd_variants = [
 libpulsecore_simd_lib = []
 
 foreach simd_kwargs : simd_variants
-  if host_machine.cpu_family() in ['aarch64', 'i686', 'x86_64']
+  if host_machine.cpu_family() in ['aarch64', 'i686', 'i786', 'x86_64']
     continue
   endif
 
