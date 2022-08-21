@@ -203,7 +203,7 @@ elif host_machine.system() == 'windows'
   winsock_dep = meson.get_compiler('c').find_library('wsock32')
   ole32_dep = meson.get_compiler('c').find_library('ole32')
   ssp_dep = meson.get_compiler('c').find_library('ssp', required: false)
-  pcreposix_dep = meson.get_compiler('c').find_library('pcreposix')
+  pcreposix_dep = meson.get_compiler('c').find_library('pcre2-posix')
   platform_socket_dep = [ws2_32_dep, winsock_dep]
   platform_dep = [ole32_dep, ssp_dep, pcreposix_dep]
 elif host_machine.system() == 'freebsd'
@@ -239,7 +239,7 @@ check_headers = [
   'netinet/in_systm.h',
   'netinet/ip.h',
   'netinet/tcp.h',
-  'pcreposix.h',
+  'pcre2posix.h',
   'poll.h',
   'pwd.h',
   'regex.h',

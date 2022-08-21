@@ -30,8 +30,8 @@
 
 #if defined(HAVE_REGEX_H)
 #include <regex.h>
-#elif defined(HAVE_PCREPOSIX_H)
-#include <pcreposix.h>
+#elif defined(HAVE_PCRE2POSIX_H)
+#include <pcre2posix.h>
 #endif
 
 #include <pulse/xmalloc.h>

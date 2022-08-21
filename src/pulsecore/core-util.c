@@ -48,8 +48,8 @@
 
 #if defined(HAVE_REGEX_H)
 #include <regex.h>
-#elif defined(HAVE_PCREPOSIX_H)
-#include <pcreposix.h>
+#elif defined(HAVE_PCRE2POSIX_H)
+#include <pcre2posix.h>
 #endif
 
 #ifdef HAVE_STRTOD_L
@@ -800,7 +800,7 @@ void pa_reset_priority(void) {
 
 /* Check whenever any substring in v matches the provided regex. */
 int pa_match(const char *expr, const char *v) {
-#if defined(HAVE_REGEX_H) || defined(HAVE_PCREPOSIX_H)
+#if defined(HAVE_REGEX_H) || defined(HAVE_PCRE2POSIX_H)
     int k;
     regex_t re;
     int r;
@@ -834,7 +834,7 @@ int pa_match(const char *expr, const char *v) {
 
 /* Check whenever the provided regex pattern is valid. */
 bool pa_is_regex_valid(const char *expr) {
-#if defined(HAVE_REGEX_H) || defined(HAVE_PCREPOSIX_H)
+#if defined(HAVE_REGEX_H) || defined(HAVE_PCRE2POSIX_H)
     regex_t re;
 
     if (expr == NULL || regcomp(&re, expr, REG_NOSUB|REG_EXTENDED) != 0) {
