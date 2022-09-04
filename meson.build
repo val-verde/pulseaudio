@@ -203,9 +203,10 @@ elif host_machine.system() == 'windows'
   winsock_dep = meson.get_compiler('c').find_library('wsock32')
   ole32_dep = meson.get_compiler('c').find_library('ole32')
   ssp_dep = meson.get_compiler('c').find_library('ssp', required: false)
-  pcreposix_dep = meson.get_compiler('c').find_library('pcre2-posix')
+  pcreposix_dep = meson.get_compiler('c').find_library('pcre2-posix', required: false)
+  regex_dep = meson.get_compiler('c').find_library('regex', required: false)
   platform_socket_dep = [ws2_32_dep, winsock_dep]
-  platform_dep = [ole32_dep, ssp_dep, pcreposix_dep]
+  platform_dep = [ole32_dep, ssp_dep, pcreposix_dep, regex_dep]
 elif host_machine.system() == 'freebsd'
   cdata.set('OS_IS_FREEBSD', 1)
 #elif host_machine.system() == 'solaris'
